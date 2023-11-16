@@ -1,24 +1,18 @@
-import { Image, Text, View, StyleSheet } from 'react-native'
-import icon from "../../../../assets/Logomark.png"
-
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import { Header } from './header';
 
 export function Step1() {
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-      <Image source={icon}/>
-</View>
+      <Header />
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    backgroundColor:"#FFFFFF",
-    alignItems:"center"
+  container: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
   },
-  header:{
-    height:
-  }
-})
+});
