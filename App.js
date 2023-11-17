@@ -9,6 +9,7 @@ import { Login } from './src/screens/Login';
 import { Step2 } from './src/screens/welcome/step2';
 import { GetStarted } from './src/screens/welcome/getStarted';
 import { Registration } from './src/screens/Registration';
+import { PhoneRegistration } from './src/screens/PhoneRegistration';
 
 const Stack = createStackNavigator();
 
@@ -39,6 +40,11 @@ export default function App() {
          <Stack.Screen
           name="Registration"
           component={Registration}
+          options={{ headerShown: false }}
+        />
+          <Stack.Screen
+          name="PhoneRegistration"
+          component={PhoneRegistration}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

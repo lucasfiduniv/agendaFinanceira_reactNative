@@ -13,11 +13,11 @@ export function Registration() {
   const [password, setPassword] = useState('');
 
   const handleSignUp = () => {
-    // Implemente aqui a lógica de criação de conta
+    navigation.navigate('PhoneRegistration');
   };
 
   const redirectToLogin = () => {
-    navigation.navigate('Login');
+    navigation.navigate('PhoneRegistration');
   };
 
   return (

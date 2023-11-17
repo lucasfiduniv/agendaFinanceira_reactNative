@@ -7,6 +7,7 @@ import { Login } from '../src/screens/Login'; // Substitua pelo caminho real
 import { Step2 } from '../src/screens/welcome/step2';
 import { GetStarted } from '../src/screens/welcome/getStarted';
 import { Registration } from '../src/screens/Registration';
+import { PhoneRegistration } from '../src/screens/PhoneRegistration';
 const Stack = createStackNavigator();
 
 const AppNavigator = () => (
@@ -16,6 +17,7 @@ const AppNavigator = () => (
       <Stack.Screen name="Step2" component={Step2} />
       <Stack.Screen name="GetStarted" component={GetStarted} />
       <Stack.Screen name="Registration" component={Registration} />
+      <Stack.Screen name="PhoneRegistration" component={PhoneRegistration} />
     </Stack.Navigator>
   </NavigationContainer>
 );
