@@ -1,9 +1,14 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-const DarkBlueButton = ({ onPress }) => (
+interface DarkBlueButtonProps {
+  onPress?: () => void;
+  text?: string;
+}
+
+const DarkBlueButton = ({ onPress, text = 'Iniciar' }: DarkBlueButtonProps) => (
   <TouchableOpacity style={styles.button} onPress={onPress}>
-    <Text style={styles.buttonText}>Iniciar</Text>
+    <Text style={styles.buttonText}>{text}</Text>
   </TouchableOpacity>
 );
 
@@ -14,6 +19,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     borderRadius: 12,
     alignItems: 'center',
+    width: '100%',
   },
   buttonText: {
     color: '#FFFFFF', // Cor do texto branco
