@@ -12,7 +12,7 @@ export function GetStarted() {
 
   const redirectToRegistration = () => {
     // Substitua 'Registration' pelo nome da tela para a qual você deseja redirecionar
-    navigation.navigate('Registration');
+    navigation.navigate('Login');
   };
   return (
     <View style={styles.container}>
@@ -23,7 +23,7 @@ export function GetStarted() {
           <Text style={styles.textDescription}>Faça login para acessar suas informações financeiras e gerenciar suas transações com segurança</Text>
         </View>
         <View style={styles.buttonContainer}>
-          <DarkBlueButton text='Login Com Email'/>
+          <DarkBlueButton text='Login Com Email' onPress={redirectToRegistration}/>
           <LoginWhiteButton
   onPress={() => {}}
   imageSource={require('../../../assets/foundation_social-apple.png')}
