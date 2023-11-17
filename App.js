@@ -1,12 +1,43 @@
+
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { Step1 } from './src/screens/welcome/step1/step1';
+import { StyleSheet, View } from 'react-native';
+import { Step1 } from './src/screens/welcome/step1';
+import { Login } from './src/screens/Login';
+import { Step2 } from './src/screens/welcome/step2';
+import { GetStarted } from './src/screens/welcome/getStarted';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-<Step1/>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Step1"
+          component={Step1}
+          options={{ headerShown: false }}
+        />
+                <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ headerShown: false }}
+        />
+         <Stack.Screen
+          name="Step2"
+          component={Step2}
+          options={{ headerShown: false }}
+        />
+         <Stack.Screen
+          name="GetStarted"
+          component={GetStarted}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+      <StatusBar style="auto" />
+    </NavigationContainer>
   );
 }
 
