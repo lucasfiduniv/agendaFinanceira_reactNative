@@ -8,6 +8,7 @@ import { Step1 } from './src/screens/welcome/step1';
 import { Login } from './src/screens/Login';
 import { Step2 } from './src/screens/welcome/step2';
 import { GetStarted } from './src/screens/welcome/getStarted';
+import { Registration } from './src/screens/Registration';
 
 const Stack = createStackNavigator();
 
@@ -33,6 +34,11 @@ export default function App() {
          <Stack.Screen
           name="GetStarted"
           component={GetStarted}
+          options={{ headerShown: false }}
+        />
+         <Stack.Screen
+          name="Registration"
+          component={Registration}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

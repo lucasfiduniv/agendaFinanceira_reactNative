@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   toggleContainer: {
     flexDirection: 'row',
     marginBottom: 10,
-    padding:10,
+    padding:5,
     backgroundColor:'#E8EAED',
     borderRadius:10
   },
