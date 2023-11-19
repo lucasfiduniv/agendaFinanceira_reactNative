@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import LoginWhiteButton from '../screens/welcome/components/loginWhiteButton';
 import { Ionicons } from '@expo/vector-icons';
 import DarkBlueButton from './welcome/components/darkBlueButton';
+import axios from 'axios';
 
 export function Registration() {
   const navigation = useNavigation();
@@ -19,21 +20,13 @@ export function Registration() {
 
   const handleSignUp = async () => {
     try {
-      const response = await fetch('http://localhost:4000/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          nome: fullName,
-          email: email,
-          senha: password,
-        }),
+      const response = await axios.post('http://192.168.1.6:3000/users', {
+        nome: fullName,
+        email: email,
+        senha: password,
       });
-console.log("bateu aqui")
-      if (!response.ok) {
-        throw new Error('Falha ao cadastrar usuário');
-      }
+
+      console.log('Resposta do servidor:', response.data);
 
       // Se a resposta foi bem-sucedida, redirecione ou faça o que for necessário
       navigation.navigate('PhoneRegistration');
@@ -42,6 +35,7 @@ console.log("bateu aqui")
       // Trate o erro de alguma forma, exibindo uma mensagem para o usuário, por exemplo
     }
   };
+
 
   return (
     <View style={styles.container}>
