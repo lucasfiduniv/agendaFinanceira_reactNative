@@ -12,12 +12,35 @@ export function Registration() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSignUp = () => {
-    navigation.navigate('PhoneRegistration');
-  };
 
   const redirectToLogin = () => {
     navigation.navigate('PhoneRegistration');
+  };
+
+  const handleSignUp = async () => {
+    try {
+      const response = await fetch('http://localhost:4000/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nome: fullName,
+          email: email,
+          senha: password,
+        }),
+      });
+console.log("bateu aqui")
+      if (!response.ok) {
+        throw new Error('Falha ao cadastrar usuário');
+      }
+
+      // Se a resposta foi bem-sucedida, redirecione ou faça o que for necessário
+      navigation.navigate('PhoneRegistration');
+    } catch (error) {
+      console.error('Erro ao cadastrar usuário:', error.message);
+      // Trate o erro de alguma forma, exibindo uma mensagem para o usuário, por exemplo
+    }
   };
 
   return (
@@ -54,6 +77,8 @@ export function Registration() {
               placeholder="Insira sua Senha"
               secureTextEntry={!showPassword}
               style={styles.input}
+              value={password}
+              onChangeText={(text) => setPassword(text)}
             />
             
             <TouchableOpacity
