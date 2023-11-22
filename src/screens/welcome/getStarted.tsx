@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   getStartedImage: {
-    height: '47%', // Cerca de 3/8 da altura
+    height: '37%', // Cerca de 3/8 da altura
     width: '100%', // Define a largura como nula para ocupar a largura total
     resizeMode: 'cover', // Preenche a imagem mantendo a proporção
   },

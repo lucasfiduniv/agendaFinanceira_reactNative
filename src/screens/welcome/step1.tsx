@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, Button } from 'react-native';
+import { View, StyleSheet, Text, Image, useWindowDimensions } from 'react-native';
 import { Header } from './components/header';
-import { Image } from 'react-native';
 import phone from '../../../assets/step1Phone.png';
 import { TextTitle } from './components/textTitle';
 import { TextDescription } from './components/textDescription';
@@ -11,6 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 export function Step1() {
   const [currentPage, setCurrentPage] = useState(0);
   const navigation = useNavigation();
+  const windowWidth = useWindowDimensions().width;
 
   const handleSliderChange = (value) => {
     setCurrentPage(value);
@@ -26,9 +26,8 @@ export function Step1() {
     return <View style={stepStyles} key={step} />;
   };
 
-
   const redirectStep = () => {
-    navigation.navigate("Step2");
+    navigation.navigate('Step2');
   };
 
   return (
@@ -37,16 +36,16 @@ export function Step1() {
       <View style={styles.containerImage}>
         <Image source={phone} style={styles.phone} />
       </View>
-      
+
       <View style={styles.stepContainer}>
         {[0, 1, 2].map((step) => renderStepIndicator(step))}
       </View>
       <View>
-          <TextTitle text="Gerenciar Dinheiro é Fácil com o GestãoPessoal"/>
-          <TextDescription text='Seu trabalho financeiro começa aqui. Estamos aqui para ajudá-lo a rastrear e acelerar suas transações.'/>
+        <TextTitle text="Gerenciar Dinheiro é Fácil com o GestãoPessoal" />
+        <TextDescription text="Seu trabalho financeiro começa aqui. Estamos aqui para ajudá-lo a rastrear e acelerar suas transações." />
       </View>
       <View style={styles.containerButton}>
-      <DarkBlueButton onPress={redirectStep}/>
+        <DarkBlueButton onPress={redirectStep} />
       </View>
     </View>
   );
@@ -58,17 +57,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   phone: {
-    height: 380,
-    width: 310,
+    height: '60%', // Usar % em vez de valores fixos
+    width: '80%', // Usar % em vez de valores fixos
   },
   containerImage: {
-    justifyContent: 'center',
+    justifyContent: 'start',
     alignItems: 'center',
   },
   stepContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 20,
+    marginTop: -150,
   },
   stepIndicator: {
     width: 10,
@@ -78,11 +77,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#A0A0A0', // Cor padrão da bolinha
   },
   currentStep: {
-    width: 20, // Ajuste o tamanho da bolinha atual se desejar que ela seja diferente das outras
+    width: 20,
     backgroundColor: '#1355FF', // Cor da bolinha atual
   },
-  containerButton:{
-    paddingHorizontal:40,
-    marginTop:20,
-  }
+  containerButton: {
+    paddingHorizontal: '10%', // Usar % em vez de valores fixos
+    marginTop: 20,
+  },
 });
