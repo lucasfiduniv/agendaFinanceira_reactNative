@@ -16,7 +16,7 @@ export function PhoneRegistration() {
     };
   
     const redirectToLogin = () => {
-      navigation.navigate('redirectLogin');
+      navigation.navigate('Registration');
     };
   
     const onSelectCountry = (country) => {

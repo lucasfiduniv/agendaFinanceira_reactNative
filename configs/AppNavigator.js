@@ -20,6 +20,7 @@ const AppNavigator = () => (
       <Stack.Screen name="Registration" component={Registration} />
       <Stack.Screen name="PhoneRegistration" component={PhoneRegistration} />
       <Stack.Screen name="VerificationCode" component={VerificationCode} />
+      <Stack.Screen name="Login" component={Login} />
     </Stack.Navigator>
   </NavigationContainer>
 );

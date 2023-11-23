@@ -15,7 +15,7 @@ export function Registration() {
 
 
   const redirectToLogin = () => {
-    navigation.navigate('PhoneRegistration');
+    navigation.navigate('Login');
   };
 
   const handleSignUp = async () => {

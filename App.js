@@ -23,11 +23,6 @@ export default function App() {
           component={Step1}
           options={{ headerShown: false }}
         />
-                <Stack.Screen
-          name="Login"
-          component={Login}
-          options={{ headerShown: false }}
-        />
          <Stack.Screen
           name="Step2"
           component={Step2}
@@ -51,6 +46,11 @@ export default function App() {
                   <Stack.Screen
           name="VerificationCode"
           component={VerificationCode}
+          options={{ headerShown: false }}
+        />
+                          <Stack.Screen
+          name="Login"
+          component={Login}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
