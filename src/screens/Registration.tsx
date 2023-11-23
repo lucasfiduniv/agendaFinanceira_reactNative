@@ -5,6 +5,7 @@ import LoginWhiteButton from '../screens/welcome/components/loginWhiteButton';
 import { Ionicons } from '@expo/vector-icons';
 import DarkBlueButton from './welcome/components/darkBlueButton';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function Registration() {
   const navigation = useNavigation();
@@ -25,7 +26,8 @@ export function Registration() {
         email: email,
         senha: password,
       });
-
+      const userId = response.data.id;
+      await AsyncStorage.setItem('userId', userId);
       console.log('Resposta do servidor:', response.data);
 
       // Se a resposta foi bem-sucedida, redirecione ou faça o que for necessário
