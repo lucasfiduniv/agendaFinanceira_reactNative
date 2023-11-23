@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 import {
   View,
   StyleSheet,
@@ -12,7 +14,7 @@ import DarkBlueButton from './welcome/components/darkBlueButton';
 
 const BackspaceButton = ({ onPress }) => (
   <TouchableOpacity style={[styles.numericButton, { flex: 1 }]} onPress={onPress}>
-    <Text style={styles.numericButtonText}>Backspace</Text>
+    <Icon name="backspace" size={24} color="black" /> 
   </TouchableOpacity>
 );
 
@@ -32,24 +34,25 @@ export function VerificationCode() {
   };
 
   const handleBackspace = () => {
-    // Encontre o índice do último dígito preenchido (não vazio)
-    const lastIndex = code.length - 1;
-    while (lastIndex >= 0 && code[lastIndex] === '') {
-      lastIndex--;
-    }
+    // Encontre o índice do último dígito preenchido (não vazio) começando do final
+    const lastIndex = code.slice().reverse().findIndex((value) => value !== '');
   
     if (lastIndex >= 0) {
+      // Converta o índice para o índice no array original
+      const originalIndex = code.length - 1 - lastIndex;
+  
       // Remova o último dígito preenchido
       const newCode = [...code];
-      newCode[lastIndex] = '';
+      newCode[originalIndex] = '';
       setCode(newCode);
   
-      // Mova o foco para o TextInput à esquerda
-      if (lastIndex > 0) {
-        refs[lastIndex - 1].focus();
+      // Mova o foco para o TextInput à direita
+      if (originalIndex < code.length - 1) {
+        refs[originalIndex + 1].focus();
       }
     }
   };
+  
 
   const handleSubmit = () => {
     const enteredCode = code.join('');
@@ -77,7 +80,7 @@ export function VerificationCode() {
             />
           ))}
         </View>
-
+          <Text style={styles.receivedcode}>Não Recebeu o Código? </Text>
         <DarkBlueButton text="Continue" onPress={handleSubmit} />
 
         <View style={styles.keyboardContainer}>
@@ -118,14 +121,19 @@ export function VerificationCode() {
           </View>
 
           <View style={styles.row}>
-            <BackspaceButton onPress={handleBackspace} />
-
+            <TouchableOpacity
+              style={styles.numericButton}
+              onPress={() => handleCodeChange(code.findIndex((digit) => digit === ''), '*')}
+            >
+              <Text style={styles.numericButtonText}>*</Text>
+            </TouchableOpacity>
             <TouchableOpacity
               style={styles.numericButton}
               onPress={() => handleCodeChange(code.findIndex((digit) => digit === ''), '0')}
             >
               <Text style={styles.numericButtonText}>0</Text>
-            </TouchableOpacity>
+            </TouchableOpacity>     
+                 <BackspaceButton onPress={handleBackspace} />
           </View>
         </View>
       </View>
@@ -155,7 +163,7 @@ const styles = StyleSheet.create({
     height: 60,
     borderWidth: 2,
     borderRadius: 10,
-    borderColor: "#E8EAED",
+    borderColor: "black",
     textAlign: 'center',
     marginRight: 10,
     fontSize: 30,
@@ -183,4 +191,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
+  receivedcode:{
+    color:"#1355FF",
+    marginBottom:20
+  }
 });
