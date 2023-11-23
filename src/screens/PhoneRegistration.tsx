@@ -12,11 +12,11 @@ export function PhoneRegistration() {
     const [modalVisible, setModalVisible] = useState(false);
   
     const handleContinue = () => {
-      // Implement authentication code sending logic
+      navigation.navigate('VerificationCode');
     };
   
     const redirectToLogin = () => {
-      navigation.navigate('Registration');
+      navigation.navigate('redirectLogin');
     };
   
     const onSelectCountry = (country) => {

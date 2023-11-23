@@ -8,6 +8,7 @@ import { Step2 } from '../src/screens/welcome/step2';
 import { GetStarted } from '../src/screens/welcome/getStarted';
 import { Registration } from '../src/screens/Registration';
 import { PhoneRegistration } from '../src/screens/PhoneRegistration';
+import { VerificationCode } from '../src/screens/VerificationCode';
 const Stack = createStackNavigator();
 
 const AppNavigator = () => (
@@ -18,6 +19,7 @@ const AppNavigator = () => (
       <Stack.Screen name="GetStarted" component={GetStarted} />
       <Stack.Screen name="Registration" component={Registration} />
       <Stack.Screen name="PhoneRegistration" component={PhoneRegistration} />
+      <Stack.Screen name="VerificationCode" component={VerificationCode} />
     </Stack.Navigator>
   </NavigationContainer>
 );

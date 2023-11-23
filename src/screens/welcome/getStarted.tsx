@@ -84,7 +84,7 @@ paddingHorizontal:20,
     width: '100%', // O botão ocupa 100% da largura
   },
   textRegistration: {
-    fontSize: 20,
+    fontSize: 18,
     color: '#061237',
     paddingLeft: 20,
     marginTop: 10, // Adiciona espaço entre os textos
@@ -99,5 +99,6 @@ paddingHorizontal:20,
 
   linkText: {
     color: '#1355FF', // Cor do link
+    fontWeight:'800'
   },
 });
