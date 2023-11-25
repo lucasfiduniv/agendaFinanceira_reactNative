@@ -5,6 +5,7 @@ import getStartedImage from '../../../assets/getstarted.png';
 import DarkBlueButton from './components/darkBlueButton';
 import { useNavigation } from '@react-navigation/native';
 import LoginWhiteButton from './components/loginWhiteButton';
+import GoogleSignInExample from '../signin/GoogleSignInExample';
 
 
 export function GetStarted() {
@@ -30,7 +31,7 @@ export function GetStarted() {
   text="Login com Apple"
 />
 <LoginWhiteButton
-  onPress={() => {}}
+  onPress={() => {GoogleSignInExample}}
   imageSource={require('../../../assets/flat-color-icons_google.png')}
   text="Login com Google"
 />

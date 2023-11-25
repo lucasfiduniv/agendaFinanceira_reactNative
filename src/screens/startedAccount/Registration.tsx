@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Image, Text, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import LoginWhiteButton from '../welcome/components/loginWhiteButton';
 import { Ionicons } from '@expo/vector-icons';
 import DarkBlueButton from '../welcome/components/darkBlueButton';
 import axios from 'axios';
