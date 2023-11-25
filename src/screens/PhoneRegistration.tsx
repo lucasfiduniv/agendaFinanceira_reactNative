@@ -25,33 +25,46 @@ export function PhoneRegistration() {
     try {
       // Recupere o ID do usuário do AsyncStorage
       const userId = await AsyncStorage.getItem('userId');
-  
+    
       // Verifique se o userId não é null antes de fazer a solicitação PATCH
-      if (userId !== null) {
-        const response = await axios.patch(
+      if (userId) {
+        const patchResponse = await axios.patch(
           `http://192.168.1.6:3000/users/updatePhone/${userId}`,
           {
-            updatePhone: phoneNumber,
+            updatePhone: `+55${phoneNumber}`,
           }
         );
-  
-        // Verifique se a resposta foi bem-sucedida antes de navegar para a próxima tela
-        if (response.status === 200) {
-          navigation.navigate('VerificationCode');
+    
+        if (patchResponse.status === 200) {
+          // Se a solicitação PATCH for bem-sucedida, envie a solicitação de verificação de código
+          const verificationResponse = await axios.post(
+            'http://192.168.1.6:3000/phone-verification/send-code',
+            {
+              phoneNumber: `+55${phoneNumber}`,
+              id: userId,
+            }
+          );
+    
+          if (verificationResponse.status === 201) {
+            // Se a solicitação de verificação for bem-sucedida, navegue para a tela de código de verificação
+            navigation.navigate('VerificationCode');
+          } else {
+            // Trate a resposta não bem-sucedida da solicitação de verificação
+            console.error('Resposta não bem-sucedida na solicitação de verificação:', verificationResponse.data);
+          }
         } else {
-          // Trate a resposta não bem-sucedida de alguma forma
-          console.error('Resposta não bem-sucedida:', response.data);
+          // Trate a resposta não bem-sucedida da solicitação PATCH
+          console.error('Resposta não bem-sucedida na solicitação PATCH:', patchResponse.data);
         }
       } else {
         console.error('Nenhum ID de usuário encontrado no AsyncStorage');
       }
     } catch (error) {
       // Trate o erro de forma apropriada
-      console.error('Erro ao processar a solicitação PATCH:', error.message);
+      console.error('Erro ao processar a solicitação:', error.message);
       throw new Error(error);
     }
-  };
-
+  }
   const redirectToLogin = () => {
     navigation.navigate("Registration");
   };

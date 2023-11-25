@@ -13,6 +13,8 @@ import {
 } from 'react-native';
 import DarkBlueButton from './welcome/components/darkBlueButton';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
 
 const BackspaceButton = ({ onPress }) => (
   <TouchableOpacity style={[styles.numericButton, { flex: 1 }]} onPress={onPress}>
@@ -23,6 +25,8 @@ const BackspaceButton = ({ onPress }) => (
 export function VerificationCode() {
   const [code, setCode] = useState(['', '', '', '', '']);
   const navigation = useNavigation();
+
+  
   const handleCodeChange = (index, value) => {
     const newCode = [...code];
     newCode[index] = value;
@@ -51,10 +55,24 @@ export function VerificationCode() {
     }
   };
 
-  const handleSubmit = () => {
-    const enteredCode = code.join('');
-
-    console.log('Entered Code:', enteredCode);
+  const handleSubmit = async () => {
+    console.log("Submit");
+    try {
+      const userId = await AsyncStorage.getItem('userId');
+      const verificationCode = code.join('');
+      const response = await axios.post("http://192.168.1.6:3000/email-verification/validaty-code", {
+        code: verificationCode,
+        id: userId,
+      });
+  
+      console.log(response);
+  
+      // Adicione lógica adicional conforme necessário com base na resposta da API
+      // Por exemplo, você pode redirecionar o usuário para a próxima tela se a validação for bem-sucedida.
+    } catch (error) {
+      console.error('Erro ao processar a solicitação:', error.message);
+      // Adicione lógica para lidar com o erro, como exibição de uma mensagem ao usuário
+    }
   };
 
   const redirectToLogin = () => {
