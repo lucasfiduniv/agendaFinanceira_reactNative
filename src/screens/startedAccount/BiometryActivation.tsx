@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
-import biometryImage from "../../assets/biometry.png"; // Certifique-se de ter a imagem correta
-import DarkBlueButton from './welcome/components/darkBlueButton';
+import biometryImage from "../../../assets/biometry.png"; // Certifique-se de ter a imagem correta
+import DarkBlueButton from '../welcome/components/darkBlueButton';
 
 export function BiometryActivation() {
   return (

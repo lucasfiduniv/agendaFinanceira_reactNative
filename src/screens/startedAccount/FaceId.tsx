@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
-import faceIdImage from "../../assets/faceid.png"
-import DarkBlueButton from './welcome/components/darkBlueButton';
+import faceIdImage from "../../../assets/faceid.png"
+import DarkBlueButton from '../welcome/components/darkBlueButton';
 import { useNavigation } from "@react-navigation/native";
 
 

@@ -5,14 +5,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import { Step1 } from './src/screens/welcome/step1';
-import { Login } from './src/screens/Login';
+import { Login } from './src/screens/startedAccount/Login';
 import { Step2 } from './src/screens/welcome/step2';
 import { GetStarted } from './src/screens/welcome/getStarted';
-import { Registration } from './src/screens/Registration';
-import { PhoneRegistration } from './src/screens/PhoneRegistration';
-import { VerificationCode } from './src/screens/VerificationCode';
-import { FaceId } from './src/screens/FaceId';
-import { BiometryActivation } from './src/screens/BiometryActivation';
+import { Registration } from './src/screens/startedAccount/Registration';
+import { PhoneRegistration } from './src/screens/startedAccount/PhoneRegistration';
+import { VerificationCode } from './src/screens/startedAccount/VerificationCode';
+import { FaceId } from './src/screens/startedAccount/FaceId';
+import { BiometryActivation } from './src/screens/startedAccount/BiometryActivation';
 
 const Stack = createStackNavigator();
 

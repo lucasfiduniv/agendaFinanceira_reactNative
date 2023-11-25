@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Image, Text, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import LoginWhiteButton from '../screens/welcome/components/loginWhiteButton';
+import LoginWhiteButton from '../welcome/components/loginWhiteButton';
 import { Ionicons } from '@expo/vector-icons';
 
 export function Login() {
@@ -17,8 +17,8 @@ export function Login() {
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
-        <Image source={require('../../assets/Logomark.png')} style={styles.logomarca} />
-        <Image source={require('../../assets/logoescura1.png')} style={styles.logo} />
+        <Image source={require('../../../assets/Logomark.png')} style={styles.logomarca} />
+        <Image source={require('../../../assets/logoescura1.png')} style={styles.logo} />
       </View>
       <Text style={styles.welcomeText}>Bem Vindo De Volta!</Text>
       <Text style={styles.descriptionText}>Digite sua conta registrada para fazer login</Text>
@@ -75,13 +75,13 @@ export function Login() {
 
       <LoginWhiteButton
         onPress={() => {}}
-        imageSource={require('../../assets/foundation_social-apple.png')}
+        imageSource={require('../../../assets/foundation_social-apple.png')}
         text="Login com Apple"
       />
 
       <LoginWhiteButton
         onPress={() => {}}
-        imageSource={require('../../assets/flat-color-icons_google.png')}
+        imageSource={require('../../../assets/flat-color-icons_google.png')}
         text="Login com Google"
       />
 
