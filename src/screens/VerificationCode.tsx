@@ -60,7 +60,7 @@ export function VerificationCode() {
     try {
       const userId = await AsyncStorage.getItem('userId');
       const verificationCode = code.join('');
-      const response = await axios.post("http://192.168.1.6:3000/email-verification/validaty-code", {
+      const response = await axios.post("http://192.168.1.6:3000/phone-verification/validaty-code", {
         code: verificationCode,
         id: userId,
       });

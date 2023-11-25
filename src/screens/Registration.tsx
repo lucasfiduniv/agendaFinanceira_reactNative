@@ -30,11 +30,10 @@ export function Registration() {
       await AsyncStorage.setItem('userId', userId);
       console.log('Resposta do servidor:', response.data);
 
-      // Se a resposta foi bem-sucedida, redirecione ou faça o que for necessário
       navigation.navigate('PhoneRegistration');
     } catch (error) {
       console.error('Erro ao cadastrar usuário:', error.message);
-      // Trate o erro de alguma forma, exibindo uma mensagem para o usuário, por exemplo
+
     }
   };
 
