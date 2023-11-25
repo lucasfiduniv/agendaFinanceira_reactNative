@@ -66,9 +66,7 @@ export function VerificationCode() {
       });
   
       console.log(response);
-  
-      // Adicione lógica adicional conforme necessário com base na resposta da API
-      // Por exemplo, você pode redirecionar o usuário para a próxima tela se a validação for bem-sucedida.
+      navigation.navigate('FaceId');
     } catch (error) {
       console.error('Erro ao processar a solicitação:', error.message);
       // Adicione lógica para lidar com o erro, como exibição de uma mensagem ao usuário

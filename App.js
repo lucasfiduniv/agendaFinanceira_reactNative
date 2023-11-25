@@ -11,6 +11,8 @@ import { GetStarted } from './src/screens/welcome/getStarted';
 import { Registration } from './src/screens/Registration';
 import { PhoneRegistration } from './src/screens/PhoneRegistration';
 import { VerificationCode } from './src/screens/VerificationCode';
+import { FaceId } from './src/screens/FaceId';
+import { BiometryActivation } from './src/screens/BiometryActivation';
 
 const Stack = createStackNavigator();
 
@@ -51,6 +53,16 @@ export default function App() {
                           <Stack.Screen
           name="Login"
           component={Login}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="FaceId"
+          component={FaceId}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="BiometryActivation"
+          component={BiometryActivation}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

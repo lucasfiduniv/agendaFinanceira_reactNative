@@ -9,6 +9,8 @@ import { GetStarted } from '../src/screens/welcome/getStarted';
 import { Registration } from '../src/screens/Registration';
 import { PhoneRegistration } from '../src/screens/PhoneRegistration';
 import { VerificationCode } from '../src/screens/VerificationCode';
+import { FaceId } from '../src/screens/FaceId';
+import { BiometryActivation } from '../src/screens/BiometryActivation';
 const Stack = createStackNavigator();
 
 const AppNavigator = () => (
@@ -21,6 +23,8 @@ const AppNavigator = () => (
       <Stack.Screen name="PhoneRegistration" component={PhoneRegistration} />
       <Stack.Screen name="VerificationCode" component={VerificationCode} />
       <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="FaceId" component={FaceId} />
+      <Stack.Screen name="BiometryActivation" component={BiometryActivation} />
     </Stack.Navigator>
   </NavigationContainer>
 );
